@@ -3,6 +3,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import { validateEmail } from "../../utils/helper";
+import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector.jsx";
 
 const Signup = () => {
   const [profilepic, setProfilepic] = useState(null);
@@ -51,6 +52,8 @@ const Signup = () => {
           Please enter your details to create an account
         </p>
         <form className="w-full flex flex-col gap-4" onSubmit={handleSignup}>
+          <ProfilePhotoSelector image={profilepic} setImage={setProfilepic} />
+
           <input
             type="text"
             placeholder="Full Name"
