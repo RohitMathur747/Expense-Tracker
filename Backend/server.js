@@ -4,6 +4,8 @@ const path = require("path");
 const express = require("express");
 const connectDB = require("./config/db.js");
 const authRoutes = require("./routes/authRoutes.js");
+const incomeRoutes = require("./routes/incomeRoutes.js");
+const expenseRoutes = require("./routes/expenseRoutes.js");
 
 const app = express();
 app.use(
@@ -20,6 +22,9 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 connectDB();
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/income", incomeRoutes);
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 5000;
 
